@@ -1,0 +1,58 @@
+.section {
+    display: inline-block;
+    position: relative;
+}
+
+.section-title {
+    background-color: #EEEEEE;
+    padding: 10px;
+    display: inline-block;
+}
+
+.section-content {
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px;
+}
+
+/* drop down hack starts */
+.section-content {
+    position: absolute;
+    top: 120%;
+    left: 0%;
+    right: -25%;
+
+    z-index: 10;
+}
+
+.dropdown-hitbox {
+    position: absolute;
+    top: 95%;
+    left: 0%;
+    right: -25%;
+    height: 200%;
+
+    background-color: black;
+    opacity: 0;  /* bonus: 0.5 */
+    z-index: 9;
+}
+
+.section-content, .dropdown-hitbox {
+    display: none;
+}
+
+.section:hover > .dropdown-hitbox {
+    display: block;
+}
+
+.section:hover > .section-content {
+    display: block;
+}
+
+.dropdown-hitbox:hover ~ .section-content {
+    display: block;
+}
+
+.section-content:hover {
+    display: block;
+}
